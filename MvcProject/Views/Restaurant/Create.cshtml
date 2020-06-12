@@ -1,0 +1,37 @@
+﻿@model MvcProject.Models.Restaurant
+@{
+    ViewBag.Title = "Create";
+}
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Restautant</legend>
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Name, new { @class = " label" })
+            @Html.EditorFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.City, new { @class = " label" })
+            @Html.EditorFor(model => model.City, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.City)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Country, new { @class = " label" })
+            @Html.EditorFor(model => model.Country, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Country)
+        </div>
+        <p>
+            <input type="submit" value="create" />
+        </p>
+    </fieldset>
+    <div>
+        @Html.ActionLink("Back To List", "Index")
+    </div>
+
+    @section Scripts{
+        @Scripts.Render("~/bundles/otf");
+    }
+}

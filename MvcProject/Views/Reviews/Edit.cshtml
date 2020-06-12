@@ -1,0 +1,43 @@
+﻿@model MvcProject.Models.RestaurantReview
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Edit Review</legend>
+        @Html.HiddenFor(x => x.Id)
+        <div class="form-group">
+            @Html.LabelFor(x => x.Rating)
+            @Html.EditorFor(x => x.Rating)
+            @Html.ValidationMessageFor(x => x.Rating)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Body)
+            @Html.EditorFor(x => x.Body)
+            @Html.ValidationMessageFor(x => x.Body)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ReviewerName)
+            @Html.EditorFor(x => x.ReviewerName)
+            @Html.ValidationMessageFor(x => x.ReviewerName)
+        </div>
+        @Html.HiddenFor(x => x.RestaurantId);
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/otf");
+}
